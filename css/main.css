@@ -1384,7 +1384,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #30d17c;
+    background: #910655;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2912,4 +2912,29 @@ header.header {
   .comments {
     padding: 10px 12px;
   }
+}
+.music-card {
+  margin: 1.5em 0;
+  padding: 1em 1.25em;
+  border-radius: 12px;
+  background: var(--content-bg-color);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+@media (prefers-color-scheme: dark) {
+  .music-card {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+}
+.music-card p {
+  margin: 0 0 0.5em 0;
+  color: var(--text-color);
+}
+.music-card audio {
+  width: 100%;
+  margin-top: 0.5em;
+  border-radius: 8px;
+  outline: none;
+}
+.music-card audio::-webkit-media-controls-enclosure {
+  border-radius: 8px;
 }
