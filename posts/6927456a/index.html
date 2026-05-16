@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kadywilson.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="叠甲  捣鼓日记中的操作基本上都是AI教的，Kady成功操作之后打算放到博客里。 Kady本人无任何计算机背景，因此文章可能会出错或者出现更糟糕的情况。 为了避免混淆，将捣鼓日记中的文章定义为日记而非教程。请仔细鉴别，请勿直接使用。  Windows 11 右键菜单添加 Anaconda Prompt Here 一、目标 实现右键菜单中添加： 1Anaconda Prompt H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="右键菜单添加anaconda prompt">
+<meta property="og:url" content="https://kadywilson.github.io/posts/6927456a/index.html">
+<meta property="og:site_name" content="Kady&#39;s Blog">
+<meta property="og:description" content="叠甲  捣鼓日记中的操作基本上都是AI教的，Kady成功操作之后打算放到博客里。 Kady本人无任何计算机背景，因此文章可能会出错或者出现更糟糕的情况。 为了避免混淆，将捣鼓日记中的文章定义为日记而非教程。请仔细鉴别，请勿直接使用。  Windows 11 右键菜单添加 Anaconda Prompt Here 一、目标 实现右键菜单中添加： 1Anaconda Prompt H">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1778909488/260516_menu_degmxk.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1778909487/260516_conda_prompt_c9dqju.png">
+<meta property="article:published_time" content="2026-05-16T05:14:01.000Z">
+<meta property="article:modified_time" content="2026-05-16T06:11:19.558Z">
+<meta property="article:author" content="Kady Wilson">
+<meta property="article:tag" content="anaconda">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1778909488/260516_menu_degmxk.png">
+
+
+<link rel="canonical" href="https://kadywilson.github.io/posts/6927456a/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://kadywilson.github.io/posts/6927456a/","path":"posts/6927456a/","title":"右键菜单添加anaconda prompt"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>右键菜单添加anaconda prompt | Kady's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Kady's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我真的很闲吗</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A0%E7%94%B2"><span class="nav-number">1.</span> <span class="nav-text">叠甲</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#windows-11-%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0-anaconda-prompt-here"><span class="nav-number">2.</span> <span class="nav-text">Windows 11 右键菜单添加 Anaconda Prompt Here</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E7%A1%AE%E8%AE%A4-anaconda-%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">先确认 Anaconda 安装位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E6%B7%BB%E5%8A%A0%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95"><span class="nav-number">4.</span> <span class="nav-text">正式添加右键菜单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">怎么使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%A1%AE%E8%AE%A4%E7%9C%9F%E7%9A%84%E5%8F%AF%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">怎么确认真的可用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E6%AC%A1%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-number">7.</span> <span class="nav-text">这次踩过的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%91-1cmd-%E4%B8%8D%E8%AE%A4%E5%8D%95%E5%BC%95%E5%8F%B7"><span class="nav-number">7.1.</span> <span class="nav-text">坑 1：CMD 不认单引号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%91-2cmd-k-%E5%B5%8C%E5%A5%97%E5%BC%95%E5%8F%B7%E5%BE%88%E5%AE%B9%E6%98%93%E8%A7%A3%E6%9E%90%E9%94%99"><span class="nav-number">7.2.</span> <span class="nav-text">坑 2：cmd &#x2F;k 嵌套引号很容易解析错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%91-3.cmd-%E4%B8%AD%E8%BD%AC%E8%84%9A%E6%9C%AC%E5%8F%AF%E8%83%BD%E9%97%AA%E9%80%80"><span class="nav-number">7.3.</span> <span class="nav-text">坑 3：.cmd 中转脚本可能闪退</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%88%A0%E9%99%A4%E8%BF%99%E4%B8%AA%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95"><span class="nav-number">8.</span> <span class="nav-text">怎么删除这个右键菜单</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kady Wilson</p>
+  <div class="site-description" itemprop="description">这是Kady的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kadywilson.github.io/posts/6927456a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kady Wilson">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kady's Blog">
+      <meta itemprop="description" content="这是Kady的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="右键菜单添加anaconda prompt | Kady's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          右键菜单添加anaconda prompt
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-16 13:14:01 / 修改时间：14:11:19" itemprop="dateCreated datePublished" datetime="2026-05-16T13:14:01+08:00">2026-05-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8D%A3%E9%BC%93%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">捣鼓日记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="叠甲">叠甲</h1>
+<ul>
+<li>捣鼓日记中的操作基本上都是AI教的，Kady成功操作之后打算放到博客里。</li>
+<li>Kady本人无任何计算机背景，因此文章可能会出错或者出现更糟糕的情况。</li>
+<li>为了避免混淆，将捣鼓日记中的文章定义为<strong>日记</strong>而非<strong>教程</strong>。请仔细鉴别，请勿直接使用。</li>
+</ul>
+<h1 id="windows-11-右键菜单添加-anaconda-prompt-here">Windows 11 右键菜单添加 Anaconda Prompt Here</h1>
+<p>一、目标</p>
+<p>实现右键菜单中添加：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Anaconda Prompt Here</span><br></pre></td></tr></table></figure>
+<p>效果是：</p>
+<p>在任意文件夹空白处右键打开后，CMD 自动进入当前目录，并自动激活 Anaconda 的 base 环境。</p>
+<span id="more"></span>
+<p>成功效果类似：</p>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1778909488/260516_menu_degmxk.png" title="右键菜单" alt="图片" /><figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1778909487/260516_conda_prompt_c9dqju.png" title="anaconda prompt" alt="图片" /><figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p>这表示：</p>
+<p><code>(base)</code> 出现了，说明 Anaconda 已激活。</p>
+<p>路径是你右键所在的目录，说明不需要再手动<code>cd /d</code>。</p>
+<h1 id="先确认-anaconda-安装位置">先确认 Anaconda 安装位置</h1>
+<p>打开 Anaconda Prompt，输入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--base</span></span><br></pre></td></tr></table></figure>
+<p>我的电脑输出了<code>E:\anaconda</code></p>
+<h1 id="正式添加右键菜单">正式添加右键菜单</h1>
+<ol type="1">
+<li>打开 PowerShell</li>
+</ol>
+<p>按： <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Win + R</span><br></pre></td></tr></table></figure></p>
+<p>输入： <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell</span><br></pre></td></tr></table></figure></p>
+<p>回车。</p>
+<p>不需要管理员权限。</p>
+<ol start="2" type="1">
+<li>粘贴下面整段执行</li>
+</ol>
+<ul>
+<li><strong>注意</strong>：这里<code>$conda = "E:\anaconda"</code>的<code>""</code>里添加的地址就是刚刚<code>conda info --base</code>输出的地址</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$conda</span> = <span class="string">&quot;E:\anaconda&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\Background\shell\AnacondaPromptHere&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\shell\AnacondaPromptHere&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="string">&quot;HKCU:\Software\Classes\DesktopBackground\Shell\AnacondaPromptHere&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\Background\shell\AnacondaPromptHere\command&quot;</span> <span class="literal">-Force</span> | <span class="built_in">Out-Null</span></span><br><span class="line"><span class="built_in">Set-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\Background\shell\AnacondaPromptHere&quot;</span> <span class="literal">-Value</span> <span class="string">&quot;Anaconda Prompt Here&quot;</span></span><br><span class="line"><span class="built_in">Set-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\Background\shell\AnacondaPromptHere\command&quot;</span> <span class="literal">-Value</span> <span class="string">&quot;cmd.exe /d /k pushd `&quot;%V`&quot; &amp;&amp; call `&quot;<span class="variable">$conda</span>\Scripts\activate.bat`&quot; `&quot;<span class="variable">$conda</span>`&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\shell\AnacondaPromptHere\command&quot;</span> <span class="literal">-Force</span> | <span class="built_in">Out-Null</span></span><br><span class="line"><span class="built_in">Set-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\shell\AnacondaPromptHere&quot;</span> <span class="literal">-Value</span> <span class="string">&quot;Anaconda Prompt Here&quot;</span></span><br><span class="line"><span class="built_in">Set-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\shell\AnacondaPromptHere\command&quot;</span> <span class="literal">-Value</span> <span class="string">&quot;cmd.exe /d /k pushd `&quot;%1`&quot; &amp;&amp; call `&quot;<span class="variable">$conda</span>\Scripts\activate.bat`&quot; `&quot;<span class="variable">$conda</span>`&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Item</span> <span class="string">&quot;HKCU:\Software\Classes\DesktopBackground\Shell\AnacondaPromptHere\command&quot;</span> <span class="literal">-Force</span> | <span class="built_in">Out-Null</span></span><br><span class="line"><span class="built_in">Set-Item</span> <span class="string">&quot;HKCU:\Software\Classes\DesktopBackground\Shell\AnacondaPromptHere&quot;</span> <span class="literal">-Value</span> <span class="string">&quot;Anaconda Prompt Here&quot;</span></span><br><span class="line"><span class="built_in">Set-Item</span> <span class="string">&quot;HKCU:\Software\Classes\DesktopBackground\Shell\AnacondaPromptHere\command&quot;</span> <span class="literal">-Value</span> <span class="string">&quot;cmd.exe /d /k pushd `&quot;%V`&quot; &amp;&amp; call `&quot;<span class="variable">$conda</span>\Scripts\activate.bat`&quot; `&quot;<span class="variable">$conda</span>`&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Stop-Process</span> <span class="literal">-Name</span> explorer <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+<p>资源管理器会闪一下，这是正常的。</p>
+<h1 id="怎么使用">怎么使用</h1>
+<p>在任意文件夹空白处右键：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">显示更多选项 → Anaconda Prompt Here</span><br></pre></td></tr></table></figure>
+<p>或者右键某个文件夹：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">显示更多选项 → Anaconda Prompt Here</span><br></pre></td></tr></table></figure>
+<p>打开后应该看到类似：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) C:\Users\XXX\Desktop\test&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="怎么确认真的可用">怎么确认真的可用</h1>
+<p>在右键打开的窗口里依次测试：</p>
+<ol type="1">
+<li>检查当前目录</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> %<span class="built_in">CD</span>%</span><br></pre></td></tr></table></figure>
+<p>应该输出你右键所在的目录，例如：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\ADY\Desktop\test</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>检查 Anaconda 位置</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--base</span></span><br></pre></td></tr></table></figure>
+<p>查看和之前输出的地址是否一致。</p>
+<ol start="3" type="1">
+<li>检查 Python 是否来自 Anaconda</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">where</span> python</span><br></pre></td></tr></table></figure>
+<p>理想情况下第一条应该类似：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:...\anaconda\python.exe</span><br></pre></td></tr></table></figure>
+<p>如果你激活了其他环境，则可能是：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:...\anaconda\envs\你的环境名\python.exe</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>检查 Python 工作目录</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python <span class="literal">-c</span> <span class="string">&quot;import sys, os; print(sys.executable); print(os.getcwd())&quot;</span></span><br></pre></td></tr></table></figure>
+<p>应该看到：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\anaconda\python.exe</span><br><span class="line">C:\Users\ADY\Desktop\test</span><br></pre></td></tr></table></figure>
+<p>这说明：</p>
+<p>Python 来自 Anaconda。</p>
+<p>当前工作目录就是右键目录。</p>
+<h1 id="这次踩过的坑">这次踩过的坑</h1>
+<h2 id="坑-1cmd-不认单引号">坑 1：CMD 不认单引号</h2>
+<p>错误形式：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;C:\Users\ADY\anaconda_prompt_here.cmd&#x27;</span> <span class="string">&quot;%1&quot;</span></span><br></pre></td></tr></table></figure>
+<p>CMD 里单引号不是路径引号，所以会报：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不是内部或外部命令，也不是可运行的程序或批处理文件。</span><br></pre></td></tr></table></figure>
+<p>正确路径引号必须是双引号：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Users\ADY\anaconda_prompt_here.cmd&quot;</span> <span class="string">&quot;%1&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="坑-2cmd-k-嵌套引号很容易解析错">坑 2：cmd /k 嵌套引号很容易解析错</h2>
+<p>之前这种形式看起来对：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe /s /k <span class="string">&quot;C:\Users\ADY\anaconda_prompt_here.cmd&quot;</span> <span class="string">&quot;%V&quot;</span></span><br></pre></td></tr></table></figure>
+<p>但在 Explorer 右键菜单里，<code>cmd /s /k</code> 对引号处理比较特殊，容易导致参数没有正确传入脚本。</p>
+<p>结果就是脚本拿不到正确路径，出现：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件名、目录名或卷标语法不正确。</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统找不到指定的路径。</span><br></pre></td></tr></table></figure>
+<h2 id="坑-3.cmd-中转脚本可能闪退">坑 3：.cmd 中转脚本可能闪退</h2>
+<p>我们尝试过用：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">anaconda_prompt_here.cmd</span><br><span class="line">anaconda_prompt_session.cmd</span><br></pre></td></tr></table></figure>
+<p>让右键菜单先调用脚本，再由脚本打开 Anaconda Prompt。</p>
+<p>但 Windows 11 的 Explorer 调用批处理文件时，如果命令结构稍有问题，就会出现：</p>
+<p>窗口快速弹出然后消失</p>
+<p>所以最后我们放弃 <code>.cmd</code> 中转，改用注册表直接执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe /d /k <span class="built_in">pushd</span> <span class="string">&quot;%V&quot;</span> &amp;&amp; call <span class="string">&quot;E:\anaconda\Scripts\activate.bat&quot;</span> <span class="string">&quot;E:\anaconda&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这是这次最稳定的方案。</p>
+<h1 id="怎么删除这个右键菜单">怎么删除这个右键菜单</h1>
+<p>如果以后不想要了，在 PowerShell 里执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Remove-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\Background\shell\AnacondaPromptHere&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="string">&quot;HKCU:\Software\Classes\Directory\shell\AnacondaPromptHere&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="string">&quot;HKCU:\Software\Classes\DesktopBackground\Shell\AnacondaPromptHere&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br><span class="line"></span><br><span class="line"><span class="built_in">Stop-Process</span> <span class="literal">-Name</span> explorer <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/anaconda/" rel="tag"><i class="fa fa-tag"></i> anaconda</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/712381f/" rel="prev" title="火与夜莺">
+                  <i class="fa fa-angle-left"></i> 火与夜莺
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kady Wilson</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        访客人数：<span id="busuanzi_value_site_uv"></span> 人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        总访问量：<span id="busuanzi_value_site_pv"></span> 次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
