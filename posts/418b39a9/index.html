@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kadywilson.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Introduction 契机  写 oc 写上头，让 gemini 给我画了 oc 的 q 版小人，之后突发奇想觉得可以做一个 Windows 本地智能桌宠，遂开工。 其实也是想尝试一下不同 effort level、haiku&#x2F;sonnet 的性能差异。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地智能桌宠">
+<meta property="og:url" content="https://kadywilson.github.io/posts/418b39a9/index.html">
+<meta property="og:site_name" content="Kady&#39;s Blog">
+<meta property="og:description" content="Introduction 契机  写 oc 写上头，让 gemini 给我画了 oc 的 q 版小人，之后突发奇想觉得可以做一个 Windows 本地智能桌宠，遂开工。 其实也是想尝试一下不同 effort level、haiku&#x2F;sonnet 的性能差异。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779530189/%E6%A1%8C%E5%AE%A0%E6%A0%B7%E5%BC%8F_mbm3h0.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779530484/menu_z3mosv.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779531002/emotion_hi8dug.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779532288/emotion_fndln0.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779532501/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9_mpv6zn.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779532501/%E6%8F%90%E7%A4%BA_aq6utn.png">
+<meta property="article:published_time" content="2026-05-23T09:37:24.000Z">
+<meta property="article:modified_time" content="2026-05-23T11:21:41.457Z">
+<meta property="article:author" content="Kady Wilson">
+<meta property="article:tag" content="anaconda">
+<meta property="article:tag" content="桌宠">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1779530189/%E6%A1%8C%E5%AE%A0%E6%A0%B7%E5%BC%8F_mbm3h0.png">
+
+
+<link rel="canonical" href="https://kadywilson.github.io/posts/418b39a9/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://kadywilson.github.io/posts/418b39a9/","path":"posts/418b39a9/","title":"本地智能桌宠"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>本地智能桌宠 | Kady's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Kady's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我真的很闲吗</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%91%E6%9C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">契机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E4%BB%96%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">现在他能做什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%8C%E5%AE%A0%E6%9C%AC%E4%BD%93"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 桌宠本体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ai-%E5%AF%B9%E8%AF%9D%E6%B0%94%E6%B3%A1"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. AI 对话气泡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%BA%E8%AE%BE"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 自定义人设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E6%83%85%E5%92%8C%E5%B0%BA%E5%AF%B8"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 自定义表情和尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E7%AA%97%E5%8F%A3"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 待办事项窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ddl-%E6%99%BA%E8%83%BD%E6%8F%90%E9%86%92"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. DDL 智能提醒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E9%BB%98%E5%90%AF%E5%8A%A8%E5%92%8C%E6%97%A5%E5%BF%97"><span class="nav-number">1.2.7.</span> <span class="nav-text">7. 静默启动和日志</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tools"><span class="nav-number">2.1.</span> <span class="nav-text">Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda"><span class="nav-number">2.1.1.</span> <span class="nav-text">Anaconda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode"><span class="nav-number">2.1.2.</span> <span class="nav-text">VSCode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gpt"><span class="nav-number">2.1.3.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#claude-code"><span class="nav-number">2.1.4.</span> <span class="nav-text">Claude Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#siliconflow-api"><span class="nav-number">2.1.5.</span> <span class="nav-text">SiliconFlow API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pyside6"><span class="nav-number">2.1.6.</span> <span class="nav-text">PySide6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlite"><span class="nav-number">2.1.7.</span> <span class="nav-text">SQLite</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#procedure"><span class="nav-number">2.2.</span> <span class="nav-text">Procedure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-1%E6%A1%8C%E5%AE%A0%E7%AA%97%E5%8F%A3-mvp"><span class="nav-number">2.2.1.</span> <span class="nav-text">Stage 1：桌宠窗口 MVP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-2%E8%A1%A8%E6%83%85%E5%B7%AE%E5%88%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.2.</span> <span class="nav-text">Stage 2：表情差分系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-3%E6%8E%A5%E5%85%A5-ai-%E5%9B%9E%E5%A4%8D"><span class="nav-number">2.2.3.</span> <span class="nav-text">Stage 3：接入 AI 回复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-4%E4%BA%BA%E8%AE%BE%E9%85%8D%E7%BD%AE%E5%92%8C%E6%B0%94%E6%B3%A1%E4%BD%93%E9%AA%8C"><span class="nav-number">2.2.4.</span> <span class="nav-text">Stage 4：人设配置和气泡体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-5%E5%BE%85%E5%8A%9E%E7%AA%97%E5%8F%A3%E5%92%8C-sqlite"><span class="nav-number">2.2.5.</span> <span class="nav-text">Stage 5：待办窗口和 SQLite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-5.5-5.6-5.7%E7%BE%8E%E5%8C%96%E5%92%8C%E4%BF%AE-ui"><span class="nav-number">2.2.6.</span> <span class="nav-text">Stage 5.5 &#x2F; 5.6 &#x2F; 5.7：美化和修 UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-6ddl-%E6%99%BA%E8%83%BD%E6%8F%90%E9%86%92"><span class="nav-number">2.2.7.</span> <span class="nav-text">Stage 6：DDL 智能提醒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-6.5%E9%9D%99%E9%BB%98%E5%90%AF%E5%8A%A8%E5%92%8C%E6%97%A5%E5%BF%97"><span class="nav-number">2.2.8.</span> <span class="nav-text">Stage 6.5：静默启动和日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E6%95%B4%E7%90%86readme-%E5%92%8C-project_state"><span class="nav-number">2.2.9.</span> <span class="nav-text">文档整理：README 和 PROJECT_STATE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#discussion"><span class="nav-number">3.</span> <span class="nav-text">Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%A6%81%E4%B8%80%E5%8F%A3%E6%B0%94%E8%AE%A9-ai-%E5%86%99%E5%AE%8C%E6%95%B4%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.1.</span> <span class="nav-text">不要一口气让 AI 写完整项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-%E5%B8%AE%E6%88%91%E6%B6%A6%E8%89%B2%E7%9A%84-prompt"><span class="nav-number">3.2.</span> <span class="nav-text">GPT 帮我润色的 prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ui-%E6%A0%B7%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">3.3.</span> <span class="nav-text">UI 样式的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%87%BB%E6%8B%96%E6%8B%BD%E5%92%8C%E5%8F%8C%E5%87%BB"><span class="nav-number">3.4.</span> <span class="nav-text">单击拖拽和双击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ai-%E7%BB%93%E6%9E%9C-fallback"><span class="nav-number">3.5.</span> <span class="nav-text">AI 结果 fallback</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%A4%B1%E6%A0%BC"><span class="nav-number">3.6.</span> <span class="nav-text">日志失格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BD%E5%9C%9F%E8%BD%AC%E7%94%9F"><span class="nav-number">3.7.</span> <span class="nav-text">秽土转生</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kady Wilson</p>
+  <div class="site-description" itemprop="description">这是Kady的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kadywilson.github.io/posts/418b39a9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kady Wilson">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kady's Blog">
+      <meta itemprop="description" content="这是Kady的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="本地智能桌宠 | Kady's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          本地智能桌宠
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-23 17:37:24 / 修改时间：19:21:41" itemprop="dateCreated datePublished" datetime="2026-05-23T17:37:24+08:00">2026-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8D%A3%E9%BC%93%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">捣鼓日记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="introduction">Introduction</h1>
+<h2 id="契机">契机</h2>
+<ul>
+<li>写 oc 写上头，让 gemini 给我画了 oc 的 q 版小人，之后突发奇想觉得可以做一个 Windows 本地智能桌宠，遂开工。</li>
+<li>其实也是想尝试一下不同 effort level、haiku/sonnet 的性能差异。</li>
+</ul>
+<span id="more"></span>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1779530189/%E6%A1%8C%E5%AE%A0%E6%A0%B7%E5%BC%8F_mbm3h0.png" title="桌宠默认状态" alt="桌宠主界面" /><figcaption aria-hidden="true">桌宠主界面</figcaption>
+</figure>
+<h2 id="现在他能做什么">现在他能做什么</h2>
+<ul>
+<li>目前这个桌宠已经可以正常作为日常小工具使用。核心功能大概可以分成几块。</li>
+</ul>
+<h3 id="桌宠本体">1. 桌宠本体</h3>
+<ul>
+<li><p>桌宠是一个透明背景、无边框、始终置顶的小窗口。它不会自己乱跑，只能用鼠标拖拽移动，这样不会打扰正常使用电脑。</p></li>
+<li><p>现在的交互是：</p>
+<ul>
+<li>按住桌宠拖动：移动位置</li>
+<li>双击桌宠：触发 AI 回复</li>
+<li>气泡出现后：点击气泡关闭</li>
+<li>托盘菜单：显示、隐藏、打开待办、打开日志、退出</li>
+</ul></li>
+<li><p>隐藏桌宠之后，程序不会退出，只是桌宠和气泡不显示。需要的时候可以从系统托盘重新显示；真正退出则通过托盘菜单里的 <code>Quit</code> 。</p></li>
+</ul>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1779530484/menu_z3mosv.png" title="系统托盘菜单" alt="系统托盘菜单" /><figcaption aria-hidden="true">系统托盘菜单</figcaption>
+</figure>
+<h3 id="ai-对话气泡">2. AI 对话气泡</h3>
+<ul>
+<li><p>双击桌宠后，它会先显示“我想想……”之类的等待气泡，然后调用 SiliconFlow API 生成回复。回复以气泡形式显示在桌宠上方。</p></li>
+<li><p>AI 回复会受到人设配置影响，比如名字、性格、语气、时间段规则、禁词等。这样它不是每次机械地说一句“你好”，而是会比较像一个固定性格的角色。人设配置文件可以自由修改。</p></li>
+<li><p>我还给它设置了情绪表情。AI 返回的结果里包含：</p></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;emotion&quot;</span><span class="punctuation">:</span> <span class="string">&quot;happy&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;reply&quot;</span><span class="punctuation">:</span> <span class="string">&quot;一句适合气泡显示的短回复&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>程序会根据 <code>emotion</code> 切换对应的表情图。目前支持：</p>
+<ul>
+<li>default</li>
+<li>happy</li>
+<li>annoyed</li>
+<li>upset</li>
+</ul></li>
+</ul>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1779531002/emotion_hi8dug.png" title="表情差分展示" alt="表情差分展示" /><figcaption aria-hidden="true">表情差分展示</figcaption>
+</figure>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1779532288/emotion_fndln0.jpg" title="实际效果展示" alt="实际效果展示" /><figcaption aria-hidden="true">实际效果展示</figcaption>
+</figure>
+<h3 id="自定义人设">3. 自定义人设</h3>
+<ul>
+<li><p>人设写在 <code>config/persona.yaml</code> 里，可以自己改。</p></li>
+<li><p>比如可以改：</p>
+<ul>
+<li>桌宠名字</li>
+<li>年龄</li>
+<li>性格</li>
+<li>说话风格</li>
+<li>不同时间段的语气</li>
+<li>情绪规则</li>
+<li>禁词</li>
+<li>硬性规则</li>
+</ul></li>
+<li><p>笨蛋 AI 一到了晚上就觉得桌宠会 annoyed，因此后来专门加了规则：深夜可以关心我休息，但不要每次都生气。这样回复就自然很多。</p></li>
+<li><p>示例片段：</p></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&quot;xx&quot;</span></span><br><span class="line"><span class="attr">age:</span> <span class="string">&quot;18&quot;</span></span><br><span class="line"><span class="attr">role:</span> <span class="string">&quot;用户的本地桌宠&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">personality:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;有点傲娇，但不是一直生气&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;嘴上嫌弃用户，实际上很关心用户&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;说话简短，有陪伴感&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">speaking_style:</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">&quot;zh-CN&quot;</span></span><br><span class="line">  <span class="attr">max_reply_length:</span> <span class="number">50</span></span><br><span class="line">  <span class="attr">tone:</span> <span class="string">&quot;可爱、轻微傲娇、自然、像熟人聊天&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">hard_rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;不要说自己是 AI 模型&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;回复不要超过 50 个汉字&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改后重启程序即可生效。</li>
+</ul>
+<h3 id="自定义表情和尺寸">4. 自定义表情和尺寸</h3>
+<ul>
+<li>角色资源放在：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assets/characters/default_pet/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>里面有：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">default.png</span><br><span class="line">happy.png</span><br><span class="line">annoyed.png</span><br><span class="line">upset.png</span><br><span class="line">manifest.json</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>manifest.json</code> 负责配置图片路径和显示尺寸：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;image_size&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;width&quot;</span><span class="punctuation">:</span> <span class="number">240</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;height&quot;</span><span class="punctuation">:</span> <span class="number">240</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;expressions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;default&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;happy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;happy.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;annoyed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;annoyed.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;upset&quot;</span><span class="punctuation">:</span> <span class="string">&quot;upset.png&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;default_expression&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>我最开始还遇到过桌宠太大、太小的问题。后来把尺寸放进 manifest 里，就不用每次翻代码了。想变小就改成 180×180，想变大就改成 240×240。</p></li>
+<li><p>另外建议表情图使用透明背景 PNG，不然桌宠会有奇怪白底。</p></li>
+</ul>
+<h3 id="待办事项窗口">5. 待办事项窗口</h3>
+<ul>
+<li><p>桌宠带了一个本地待办事项窗口，可以从托盘打开（点击<code>Open Todo</code>）。</p></li>
+<li><p>现在支持：</p>
+<ul>
+<li>新增待办</li>
+<li>编辑待办</li>
+<li>删除待办</li>
+<li>标记完成 / 取消完成</li>
+<li>设置截止时间</li>
+<li>SQLite 本地保存</li>
+<li>重启后待办仍然存在</li>
+</ul></li>
+<li><p>数据保存在：</p></li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data/pet.db</span><br></pre></td></tr></table></figure>
+<ul>
+<li>界面最开始非常原始，像默认 Qt 表格。后来又单独做了几轮 UI 优化，包括按钮样式、日期选择、表格列宽、输入框对齐、避免 QSS 样式污染等。</li>
+</ul>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1779532501/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9_mpv6zn.png" title="待办事项窗口" alt="待办事项窗口" /><figcaption aria-hidden="true">待办事项窗口</figcaption>
+</figure>
+<h3 id="ddl-智能提醒">6. DDL 智能提醒</h3>
+<ul>
+<li><p><em>不会主动说话的oc不是好oc（）</em></p></li>
+<li><p>程序会每 60 秒扫描一次未完成的待办。如果待办没有过期，就会在两个时间点提醒：</p>
+<ul>
+<li>截止前一天</li>
+<li>截止前半小时</li>
+</ul></li>
+<li><p>已经完成的待办不提醒，已经过期的待办也不会再提醒。</p></li>
+<li><p>提醒内容不是死板模板，而是会根据待办内容调用 AI 生成个性化提醒。例如：</p>
+<ul>
+<li>如果是考试：提醒复习，祝考试顺利</li>
+<li>如果是作业：提醒早点开工、记得提交</li>
+<li>如果是组会 / meeting：提醒准备材料、别迟到</li>
+<li>如果是出去玩：提醒带东西、看天气、玩得开心</li>
+<li>如果是论文：提醒保存文档、检查格式</li>
+</ul></li>
+<li><p>我后面还修过一次提醒 AI 的问题。一开始 reminder 逻辑疑似调用了不存在的方法，导致它可能一直走 fallback。本来以为已经接入了 AI，后来通过日志检查才发现要确认真实调用路径。修复后，DDL 提醒有了专门的 <code>generate_reminder_reply()</code>，还加了日志标记，能判断到底是走 AI 还是 fallback。</p></li>
+<li><p>日志里可以搜索：</p></li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ReminderAI]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果看到类似：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ReminderAI] AI reminder generated successfully</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>就说明真的走了 AI。</p></li>
+<li><p>如果 API 失败、网络失败、返回格式不对、或者包含禁词，就会自动 fallback 到本地模板，不会让程序崩掉。</p></li>
+</ul>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1779532501/%E6%8F%90%E7%A4%BA_aq6utn.png" title="DDL 提醒气泡" alt="DDL 提醒气泡" /><figcaption aria-hidden="true">DDL 提醒气泡</figcaption>
+</figure>
+<h3 id="静默启动和日志">7. 静默启动和日志</h3>
+<ul>
+<li>最开始运行程序时会弹出一个黑色控制台窗口，很丑，而且必须一直开着。后来我加了静默启动：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run_pet_silent.vbs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>日常双击它启动，不会出现黑窗口。出问题时再用：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run_pet_debug.bat</span><br></pre></td></tr></table></figure>
+<ul>
+<li>日志写在：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logs/pet_app.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>并且也可以从托盘菜单里打开日志（点击<code>Open Logs</code>）。</li>
+</ul>
+<h1 id="method">Method</h1>
+<h2 id="tools">Tools</h2>
+<h3 id="anaconda">Anaconda</h3>
+<ul>
+<li>用来创建 Python 环境。环境名是：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desktop-pet</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>我用它管理 Python 版本和依赖，这样不会污染系统 Python。</p></li>
+<li><p>大致命令：</p></li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">-n</span> desktop<span class="literal">-pet</span> python=<span class="number">3.11</span> <span class="literal">-y</span></span><br><span class="line">conda activate desktop<span class="literal">-pet</span></span><br><span class="line">pip install <span class="literal">-r</span> requirements.txt</span><br></pre></td></tr></table></figure>
+<h3 id="vscode">VSCode</h3>
+<ul>
+<li><p>主要用来查看和编辑项目文件，包括：</p>
+<ul>
+<li>Python 代码</li>
+<li>YAML 配置</li>
+<li>JSON manifest</li>
+<li>README 和交接文档</li>
+<li>启动脚本</li>
+</ul></li>
+<li><p>虽然大部分代码是 Claude Code 帮忙写的，但我还是需要在 VSCode 里检查文件结构、看日志、改配置、替换图片。</p></li>
+</ul>
+<h3 id="gpt">GPT</h3>
+<ul>
+<li><p>GPT 在这个项目里更像“项目经理 + 咨询顾问 + 流程监控”。</p></li>
+<li><p>我主要用它做这些事：</p>
+<ul>
+<li>把需求拆成阶段</li>
+<li>判断下一步该做什么</li>
+<li>写给 Claude Code 的 prompt</li>
+<li>遇到 bug 时判断是哪里的问题</li>
+<li>帮我控制 Claude Code 不要一次性乱改</li>
+<li>帮我设计项目结构和文档结构</li>
+<li>规划如何生成 <code>PROJECT_STATE.md</code>，避免下次继续 <code>/resume</code> 消耗大量 token</li>
+</ul></li>
+<li><p>实际体验是：GPT 不直接改我的代码，但非常适合帮我想清楚“该让 Claude Code 做什么”。</p></li>
+</ul>
+<h3 id="claude-code">Claude Code</h3>
+<ul>
+<li><p>Claude Code 是主要的编程工具。</p></li>
+<li><p>咨询了GPT之后，交替使用 Haiku 和 Sonnet：</p>
+<ul>
+<li>Haiku：进行小修小补、文档增量更新、明确的小 bug。这次编程主力是Haiku。</li>
+<li>Sonnet：进行读项目结构、总结状态、复杂一点的修复。笨蛋Haiku的bug就让Sonnet来修，同时形成总结文档方便我开启新对话减少token消耗。</li>
+<li>Medium effort：开发目前功能的话完全够用。</li>
+<li>High effort：已老实，感觉Medium够用了。</li>
+</ul></li>
+<li><p>我的经验是，不要一开始就让 Claude Code “帮我做完整项目”。应该一小步一小步发任务，比如：</p></li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这次只做 Stage 2：表情差分系统。</span><br><span class="line">不要接 AI。</span><br><span class="line">不要做 todo。</span><br><span class="line">不要改托盘逻辑。</span><br><span class="line">不要破坏已有功能。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>约束越清楚，它越不容易发散。</li>
+</ul>
+<h3 id="siliconflow-api">SiliconFlow API</h3>
+<ul>
+<li><p>AI 回复和智能提醒使用 SiliconFlow 的 OpenAI-compatible API。</p></li>
+<li><p>配置放在 <code>.env</code>：</p></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SILICONFLOW_API_KEY=你的真实 API Key</span><br><span class="line">SILICONFLOW_BASE_URL=https://api.siliconflow.cn/v1</span><br><span class="line">SILICONFLOW_MODEL=你的模型名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>真实 <code>.env</code> 不要发给别人，也不要贴给 AI。Claude Code 只需要知道 <code>.env.example</code> 的格式，不需要知道真实 key。</li>
+</ul>
+<h3 id="pyside6">PySide6</h3>
+<ul>
+<li><p>桌宠窗口、气泡、托盘、待办窗口全部由 PySide6 实现。</p></li>
+<li><p>这个项目里用到的 GUI 能力包括：</p>
+<ul>
+<li>无边框窗口</li>
+<li>透明背景</li>
+<li>始终置顶</li>
+<li>鼠标拖拽</li>
+<li>系统托盘</li>
+<li>气泡窗口</li>
+<li>Todo 表单和表格</li>
+<li>QTimer 定时扫描提醒</li>
+<li>QThreadPool 异步调用 AI</li>
+</ul></li>
+</ul>
+<h3 id="sqlite">SQLite</h3>
+<ul>
+<li>待办事项存到本地 SQLite：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data/pet.db</span><br></pre></td></tr></table></figure>
+<ul>
+<li>本地自用的话，SQLite 非常够用。没有必要一开始就做云同步、登录系统、远程数据库。</li>
+</ul>
+<h2 id="procedure">Procedure</h2>
+<ul>
+<li>整个项目大概是这样迭代出来的。</li>
+</ul>
+<h3 id="stage-1桌宠窗口-mvp">Stage 1：桌宠窗口 MVP</h3>
+<ul>
+<li><p>先做最小可运行版本：</p>
+<ul>
+<li>显示桌宠图片</li>
+<li>透明背景</li>
+<li>无边框</li>
+<li>置顶</li>
+<li>鼠标拖拽</li>
+<li>双击显示气泡</li>
+<li>托盘显示 / 隐藏 / 退出</li>
+</ul></li>
+<li><p>这一步完全不接 AI。先让桌宠本体稳定。</p></li>
+</ul>
+<h3 id="stage-2表情差分系统">Stage 2：表情差分系统</h3>
+<ul>
+<li><p>让桌宠表情丰富起来，通过 <code>manifest.json</code> 读取：</p>
+<ul>
+<li>default</li>
+<li>happy</li>
+<li>annoyed</li>
+<li>upset</li>
+</ul></li>
+<li><p>并支持调整尺寸。这样后续换皮肤、换表情不会碰核心代码。</p></li>
+</ul>
+<h3 id="stage-3接入-ai-回复">Stage 3：接入 AI 回复</h3>
+<ul>
+<li><p>双击桌宠后调用 SiliconFlow API，生成短回复和 emotion。</p></li>
+<li><p>重点是：</p>
+<ul>
+<li>API 失败不能崩</li>
+<li>JSON 格式错误要 fallback</li>
+<li>不能在 UI 线程里阻塞</li>
+<li>不能打印 API key</li>
+</ul></li>
+</ul>
+<h3 id="stage-4人设配置和气泡体验">Stage 4：人设配置和气泡体验</h3>
+<ul>
+<li><p>加入 <code>persona.yaml</code>，把性格、姓名、时段规则、禁词等从代码里拿出来。</p></li>
+<li><p>同时优化气泡：不要 2 秒自动消失，而是停留到用户点击关闭（都是气泡了，戳一下消失，很合理）。</p></li>
+</ul>
+<h3 id="stage-5待办窗口和-sqlite">Stage 5：待办窗口和 SQLite</h3>
+<ul>
+<li><p>做 TodoWindow，支持新增、编辑、删除、完成，保存到 SQLite。</p></li>
+<li><p>这一阶段只做管理界面，不做提醒。</p></li>
+</ul>
+<h3 id="stage-5.5-5.6-5.7美化和修-ui">Stage 5.5 / 5.6 / 5.7：美化和修 UI</h3>
+<ul>
+<li><p>这一步花的时间比想象中多。默认 Qt 控件实在是丑陋，而且样式很容易互相污染。</p></li>
+<li><p>修过的问题包括：</p>
+<ul>
+<li>按钮没颜色</li>
+<li>日期选择按钮不可见</li>
+<li>标签文字模糊</li>
+<li>表格列宽不对</li>
+<li>日历弹窗被染色</li>
+<li>列表行背景太突兀</li>
+</ul></li>
+<li><p><em>由于没有什么平面设计审美和经验，最后的版本貌似也不是很好看，但是够用。后续应该会进行优化。</em></p></li>
+<li><p>经验是：QSS 一定要控制作用域，不要乱写全局 <code>QWidget</code> 样式。</p></li>
+</ul>
+<h3 id="stage-6ddl-智能提醒">Stage 6：DDL 智能提醒</h3>
+<ul>
+<li><p>加入定时扫描：</p>
+<ul>
+<li>前一天提醒</li>
+<li>前半小时提醒</li>
+<li>未完成才提醒</li>
+<li>过期不提醒</li>
+<li>桌宠隐藏时不弹气泡</li>
+</ul></li>
+<li><p>提醒内容接入 AI，根据待办内容个性化生成。</p></li>
+</ul>
+<h3 id="stage-6.5静默启动和日志">Stage 6.5：静默启动和日志</h3>
+<ul>
+<li>把日常启动改成不显示黑色控制台窗口。日志写入文件，调试时再用 bat 查看控制台。</li>
+</ul>
+<h3 id="文档整理readme-和-project_state">文档整理：README 和 PROJECT_STATE</h3>
+<ul>
+<li><p>最后补文档：</p>
+<ul>
+<li><code>README.md</code>：给人看的使用说明</li>
+<li><code>PROJECT_STATE.md</code>：给未来 Claude Code 看的项目交接文档</li>
+</ul></li>
+<li><p>这样以后开新会话不用 <code>/resume</code>，直接让 AI 读 <code>CLAUDE.md</code> 和 <code>PROJECT_STATE.md</code> 就能继续开发。</p></li>
+</ul>
+<h1 id="discussion">Discussion</h1>
+<h2 id="不要一口气让-ai-写完整项目">不要一口气让 AI 写完整项目</h2>
+<ul>
+<li><p>如果一开始就说“帮我写一个智能桌宠，带 AI、todo、提醒、托盘、配置、自定义皮肤”，AI 很容易生成一堆互相耦合、难以调试的代码。</p></li>
+<li><p>GPT告诉我的方式是：</p></li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这次只实现一个功能。</span><br><span class="line">不要修改其他模块。</span><br><span class="line">不要破坏已有逻辑。</span><br><span class="line">完成后告诉我改了哪些文件和怎么测试。</span><br></pre></td></tr></table></figure>
+<h2 id="gpt-帮我润色的-prompt">GPT 帮我润色的 prompt</h2>
+<ul>
+<li><p>我后来给 claude Code 的 prompt 基本都有这些结构：</p>
+<ul>
+<li>当前已经完成什么</li>
+<li>本次只做什么</li>
+<li>明确不要做什么</li>
+<li>允许修改哪些文件</li>
+<li>不允许碰哪些文件</li>
+<li>运行方式是什么</li>
+<li>完成后要汇报什么</li>
+<li>如何测试</li>
+</ul></li>
+<li><p>这会极大减少它“自作主张”。</p></li>
+</ul>
+<h2 id="ui-样式的作用域">UI 样式的作用域</h2>
+<ul>
+<li><p>PySide6 的 QSS 很容易影响不该影响的控件。</p></li>
+<li><p>我遇到过：</p>
+<ul>
+<li>待办窗口样式影响日历弹窗</li>
+<li>按钮被设置成透明</li>
+<li>标签文字变模糊</li>
+<li>表格行背景不合理</li>
+</ul></li>
+<li><p>后面才开始给窗口和控件设置 objectName，用更精确的选择器，例如只作用于 TodoWindow，避免污染 PetWindow 的透明背景。</p></li>
+</ul>
+<h2 id="单击拖拽和双击">单击拖拽和双击</h2>
+<ul>
+<li><p>桌宠是靠鼠标拖拽移动的。如果把单击也设成 AI 触发，很容易影响拖拽体验。</p></li>
+<li><p>最后我保留了：</p>
+<ul>
+<li>单击 / 拖拽：移动</li>
+<li>双击：触发 AI</li>
+</ul></li>
+<li><p>这个交互比较稳定。</p></li>
+</ul>
+<h2 id="ai-结果-fallback">AI 结果 fallback</h2>
+<ul>
+<li><p>不要相信模型永远返回正确 JSON。它可能返回正常 JSON，也可能返回带 markdown 代码块的 JSON，甚至可能输出一段解释。</p></li>
+<li><p>所以必须做：</p>
+<ul>
+<li>JSON 解析失败 fallback</li>
+<li>emotion 不存在 fallback</li>
+<li>API key 缺失 fallback</li>
+<li>网络失败 fallback</li>
+<li>禁词命中 fallback</li>
+</ul></li>
+<li><p>这样桌宠才不会因为一次 API 异常就崩掉。</p></li>
+</ul>
+<h2 id="日志失格">日志失格</h2>
+<ul>
+<li><p>我一开始以为 DDL 提醒已经接入了 AI，后来看到待确认项才意识到应该验证。</p></li>
+<li><p>后来通过日志标记：</p></li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ReminderAI]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>来确认提醒到底是：</p>
+<ul>
+<li>成功调用 AI</li>
+<li>API 失败</li>
+<li>JSON 解析失败</li>
+<li>命中禁词</li>
+<li>走 fallback</li>
+</ul></li>
+<li><p>没有日志的话，很难判断“看起来智能”到底是真 AI 还是模板（主要是模板也不是我自己写的，啊哈哈）</p></li>
+</ul>
+<h2 id="秽土转生">秽土转生</h2>
+<ul>
+<li><p>让 sonnet 写了 <code>PROJECT_STATE.md</code> 。</p></li>
+<li><p>开发到后面，历史聊天越来越长，继续 <code>/resume</code> 会消耗很多 token，而且经历了几次compaction，于是让 claude Code 根据当前代码生成项目状态文档。</p></li>
+<li><p>以后新开会话只要说：</p></li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请先阅读 CLAUDE.md 和 PROJECT_STATE.md，理解当前项目状态。不要 /resume 旧聊天记录。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>就能继续开发。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/anaconda/" rel="tag"><i class="fa fa-tag"></i> anaconda</a>
+              <a href="/tags/%E6%A1%8C%E5%AE%A0/" rel="tag"><i class="fa fa-tag"></i> 桌宠</a>
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6927456a/" rel="prev" title="右键菜单添加anaconda prompt">
+                  <i class="fa fa-angle-left"></i> 右键菜单添加anaconda prompt
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kady Wilson</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        访客人数：<span id="busuanzi_value_site_uv"></span> 人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        总访问量：<span id="busuanzi_value_site_pv"></span> 次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
