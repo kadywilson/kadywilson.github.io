@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kadywilson.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本地智能桌宠第二期更新记录 第二期桌宠主要完成了 v2、v3 和 v4 功能迭代，重点是增强 AI 对话体验、语音朗读以及天气功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地智能桌宠第二期">
+<meta property="og:url" content="https://kadywilson.github.io/posts/39210f06/index.html">
+<meta property="og:site_name" content="Kady&#39;s Blog">
+<meta property="og:description" content="本地智能桌宠第二期更新记录 第二期桌宠主要完成了 v2、v3 和 v4 功能迭代，重点是增强 AI 对话体验、语音朗读以及天气功能。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E8%8F%9C%E5%8D%95%E4%B8%80%E8%A7%88_di7y8u.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E6%89%93%E7%AE%97%E5%88%86%E4%BA%AB_tckcet.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E8%AF%B4%E4%BC%9A%E5%AE%B3%E7%BE%9E_x8i4ta.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780238181/%E7%81%AB%E5%B1%B1%E5%BC%95%E6%93%8E_cx8acu.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780238340/wttr_a52p5y.png">
+<meta property="og:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5_hnrsdf.png">
+<meta property="article:published_time" content="2026-05-31T14:24:59.106Z">
+<meta property="article:modified_time" content="2026-05-31T14:48:00.431Z">
+<meta property="article:author" content="Kady Wilson">
+<meta property="article:tag" content="oc">
+<meta property="article:tag" content="桌宠">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="TTS">
+<meta property="article:tag" content="天气">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E8%8F%9C%E5%8D%95%E4%B8%80%E8%A7%88_di7y8u.png">
+
+
+<link rel="canonical" href="https://kadywilson.github.io/posts/39210f06/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://kadywilson.github.io/posts/39210f06/","path":"posts/39210f06/","title":"本地智能桌宠第二期"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>本地智能桌宠第二期 | Kady's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Kady's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我真的很闲吗</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%99%BA%E8%83%BD%E6%A1%8C%E5%AE%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">本地智能桌宠第二期更新记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v2-chat-panel-memory"><span class="nav-number">1.1.</span> <span class="nav-text">v2 Chat Panel &amp; Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%88%90%E5%86%85%E5%AE%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">完成内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ui-%E4%BF%AE%E5%A4%8D%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">UI 修复与优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v3-tts-%E8%AF%AD%E9%9F%B3%E6%9C%97%E8%AF%BB"><span class="nav-number">1.3.</span> <span class="nav-text">v3 TTS 语音朗读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">功能概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tts-%E6%8E%A5%E5%85%A5%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.2.</span> <span class="nav-text">TTS 接入详细说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v4-weather-%E4%BB%8A%E6%97%A5%E5%A4%A9%E6%B0%94"><span class="nav-number">1.4.</span> <span class="nav-text">v4 Weather &#x2F; 今日天气</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">功能概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="nav-number">1.4.2.</span> <span class="nav-text">技术细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kady Wilson</p>
+  <div class="site-description" itemprop="description">这是Kady的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kadywilson.github.io/posts/39210f06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kady Wilson">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kady's Blog">
+      <meta itemprop="description" content="这是Kady的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="本地智能桌宠第二期 | Kady's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          本地智能桌宠第二期
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-31 22:24:59 / 修改时间：22:48:00" itemprop="dateCreated datePublished" datetime="2026-05-31T22:24:59+08:00">2026-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8D%A3%E9%BC%93%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">捣鼓日记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="本地智能桌宠第二期更新记录">本地智能桌宠第二期更新记录</h1>
+<p>第二期桌宠主要完成了 v2、v3 和 v4 功能迭代，重点是增强 AI 对话体验、语音朗读以及天气功能。</p>
+<span id="more"></span>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E8%8F%9C%E5%8D%95%E4%B8%80%E8%A7%88_di7y8u.png" title="新菜单" alt="新菜单" /><figcaption aria-hidden="true">新菜单</figcaption>
+</figure>
+<hr />
+<h2 id="v2-chat-panel-memory">v2 Chat Panel &amp; Memory</h2>
+<h3 id="完成内容">完成内容</h3>
+<ul>
+<li><strong>Chat Panel 短对话输入框</strong>
+<ul>
+<li>位于桌宠下方，半透明，随桌宠移动。</li>
+<li>输入内容后调用 AI 回复。</li>
+<li>使用 <code>config/persona.yaml</code> + <code>config/chat.yaml</code> 提供 prompt 和个性化语气。</li>
+</ul></li>
+<li><strong>托盘菜单更新</strong>
+<ul>
+<li>增加 <code>Show Chat</code> / <code>Hide Chat</code>。</li>
+<li>支持右键桌宠打开功能菜单，同步托盘逻辑。</li>
+</ul></li>
+<li><strong>Chat 记忆</strong>
+<ul>
+<li>JSONL 格式短对话记忆：<code>data/chat_memory/active_chat.jsonl</code>。</li>
+<li>支持归档 <code>active_chat.jsonl</code> 到 archive 目录，开启新的活跃记忆段落。</li>
+<li>Poke 与 Todo 提醒不写入 Chat memory，保证对话独立。</li>
+</ul></li>
+</ul>
+<p><img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E6%89%93%E7%AE%97%E5%88%86%E4%BA%AB_tckcet.png" title="发送文字" alt="发送文字" /> <img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E8%AF%B4%E4%BC%9A%E5%AE%B3%E7%BE%9E_x8i4ta.png" title="得到回答" alt="得到回答" /></p>
+<hr />
+<h2 id="ui-修复与优化">UI 修复与优化</h2>
+<ul>
+<li><strong>自定义系统托盘图标和应用窗口图标</strong>
+<ul>
+<li>图标加载顺序：<code>assets/icons/tray.ico</code> &gt; <code>assets/icons/tray.png</code> &gt; fallback 蓝圈。</li>
+</ul></li>
+<li><strong>右键桌宠打开功能菜单</strong>
+<ul>
+<li>复用系统托盘菜单逻辑，操作一致。</li>
+</ul></li>
+<li><strong>气泡与表情</strong>
+<ul>
+<li>气泡点击关闭，表情恢复默认。</li>
+<li>支持四种表情：default / happy / annoyed / upset。</li>
+<li>支持 manifest.json 控制表情路径和桌宠尺寸。</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="v3-tts-语音朗读">v3 TTS 语音朗读</h2>
+<h3 id="功能概述">功能概述</h3>
+<ul>
+<li>气泡显示最终 AI 回复时自动朗读：
+<ul>
+<li>包含 Poke / Chat / Reminder 场景。</li>
+<li>Thinking bubble（“我想想……”）不朗读。</li>
+</ul></li>
+<li><strong>Voice On / Off 菜单切换</strong>
+<ul>
+<li>立即生效，静音模式不调用 TTS API。</li>
+</ul></li>
+<li><strong>播放与缓存</strong>
+<ul>
+<li>新气泡到来时中断旧音频播放。</li>
+<li>TTS 合成在后台线程，UI 不阻塞。</li>
+<li>缓存已合成音频（md5 hash），重复文本直接播放。</li>
+<li>缓存自动清理：按天（默认 2 天）+ 按数量（默认 300 个）。</li>
+</ul></li>
+</ul>
+<h3 id="tts-接入详细说明">TTS 接入详细说明</h3>
+<ol type="1">
+<li><strong>Provider</strong>：Volcengine / 豆包语音</li>
+<li><strong>Endpoint</strong>：</li>
+</ol>
+<p>https://openspeech.bytedance.com/api/v3/tts/unidirectional</p>
+<ol start="3" type="1">
+<li><strong>鉴权</strong>：</li>
+</ol>
+<ul>
+<li><code>X-Api-Key</code></li>
+<li><code>X-Api-Resource-Id</code>（新版控制台）</li>
+<li>Resource ID 示例：<code>seed-tts-2.0</code></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Voice</strong>：<code>zh_male_kailangdidi_uranus_bigtts</code>（开朗弟弟 2.0）</li>
+<li><strong>情感控制</strong>：</li>
+</ol>
+<ul>
+<li><code>additions.context_texts</code> 可传入上下文文本。</li>
+<li><code>audio_params.emotion</code> 预留接口支持未来扩展。</li>
+</ul>
+<ol start="6" type="1">
+<li><strong>本地预览</strong></li>
+</ol>
+<ul>
+<li>使用 <code>scripts/preview_tts.py</code> 可以独立生成样音： <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda activate desktop<span class="literal">-pet</span></span><br><span class="line"><span class="built_in">cd</span> E:\smart<span class="literal">-desktop-pet</span></span><br><span class="line"><span class="variable">$env:PYTHONPATH</span>=<span class="string">&quot;src&quot;</span></span><br><span class="line">python scripts/preview_tts.py</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1780238181/%E7%81%AB%E5%B1%B1%E5%BC%95%E6%93%8E_cx8acu.png" title="火山引擎送了20000字数" alt="火山引擎送了20000字数" /><figcaption aria-hidden="true">火山引擎送了20000字数</figcaption>
+</figure>
+<hr />
+<h2 id="v4-weather-今日天气">v4 Weather / 今日天气</h2>
+<h3 id="功能概述-1">功能概述</h3>
+<ul>
+<li>托盘菜单与右键菜单增加：</li>
+<li><code>Weather Today</code> / <code>Weather Tomorrow</code></li>
+<li>点击后异步请求 <code>wttr.in</code> 获取天气数据。</li>
+<li>气泡显示中文天气摘要，含简单建议。</li>
+<li>支持 Voice 自动朗读（可配置 <code>weather.behavior.speak_if_voice_enabled</code>）。</li>
+</ul>
+<h3 id="技术细节">技术细节</h3>
+<ul>
+<li><strong>数据源</strong>：</li>
+</ul>
+<p>https://wttr.in/{location}?format=j1</p>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1780238340/wttr_a52p5y.png" title="wttr" alt="wttr" /><figcaption aria-hidden="true">wttr</figcaption>
+</figure>
+<ul>
+<li><p><code>&#123;location&#125;</code> 来自 <code>config/weather.yaml</code> 手动配置。</p></li>
+<li><p>仅支持手动输入城市名或机场代码，避免使用 GPS / IP 定位。</p></li>
+<li><p><strong>缓存</strong></p></li>
+<li><p>文件路径：<code>data/weather_cache/current_weather.json</code></p></li>
+<li><p>TTL：30 分钟</p></li>
+<li><p>启动时自动清理过期缓存</p></li>
+<li><p>成功请求后写入缓存，缓存命中直接使用，不请求 API。</p></li>
+<li><p><strong>容错</strong></p></li>
+<li><p>网络失败或解析错误使用本地 fallback 文案： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">天气暂时查不到，但这不影响我陪你。</span><br></pre></td></tr></table></figure></p></li>
+<li><p>不影响 Chat / TTS / Todo / Reminder。</p></li>
+<li><p><strong>异步请求</strong></p></li>
+<li><p>使用后台线程，保证 UI 不阻塞。</p></li>
+<li><p>失败仅记录日志，不弹错误窗口。</p></li>
+</ul>
+<figure>
+<img src="https://res.cloudinary.com/dwawjoilr/image/upload/v1780237907/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5_hnrsdf.png" title="天气预报" alt="天气预报" /><figcaption aria-hidden="true">天气预报</figcaption>
+</figure>
+<hr />
+<h2 id="总结">总结</h2>
+<p>第二期主要完成：</p>
+<ol type="1">
+<li><strong>v2</strong>：Chat Panel、短对话、Chat 记忆与归档。</li>
+<li><strong>v3</strong>：TTS 语音朗读、播放控制、缓存机制。</li>
+<li><strong>v4</strong>：Weather 今日/明日天气查询、中文气泡显示、TTS 朗读支持、缓存机制。</li>
+</ol>
+<p>整个迭代保持了：</p>
+<ul>
+<li>UI 线程不阻塞。</li>
+<li>Chat 与 Weather 数据互不污染。</li>
+<li>失败路径有 fallback，保证程序稳定。</li>
+<li>静默启动、日志功能完善，方便调试。</li>
+</ul>
+<p>桌宠现在可以作为日常小工具使用，并提供更自然的 AI 互动体验和语音陪伴。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/oc/" rel="tag"><i class="fa fa-tag"></i> oc</a>
+              <a href="/tags/%E6%A1%8C%E5%AE%A0/" rel="tag"><i class="fa fa-tag"></i> 桌宠</a>
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/TTS/" rel="tag"><i class="fa fa-tag"></i> TTS</a>
+              <a href="/tags/%E5%A4%A9%E6%B0%94/" rel="tag"><i class="fa fa-tag"></i> 天气</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/418b39a9/" rel="prev" title="本地智能桌宠">
+                  <i class="fa fa-angle-left"></i> 本地智能桌宠
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kady Wilson</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        访客人数：<span id="busuanzi_value_site_uv"></span> 人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        总访问量：<span id="busuanzi_value_site_pv"></span> 次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
